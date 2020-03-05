@@ -6,13 +6,6 @@ namespace Scrabble.Test
     [TestClass]
     public class ScrabbleTests
     {
-        [TestMethod]
-        public void GetWord_ReceiveInput_true()
-        {
-            ScrabbleScore newScore = new ScrabbleScore();
-            bool outcome = newScore.GetWord("word");
-            Assert.AreEqual(true, outcome);
-        }
 
         [TestMethod]
         public void CheckWord_ReceiveLettersOnly_true()

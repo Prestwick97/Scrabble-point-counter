@@ -16,19 +16,6 @@ namespace Scrabble.Models
             ScoreDetails = new List<string>{};
         }
 
-        public bool GetWord(string inputWord)
-        {
-            if (inputWord != null)
-            {
-                InputWord = inputWord;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         public bool CheckWord(string input)
         {
             bool outcome = Regex.IsMatch(input, @"^[a-zA-Z]+$");
