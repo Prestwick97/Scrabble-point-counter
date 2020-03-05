@@ -1,5 +1,9 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Text;
+using System.IO;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Scrabble.Models
 {
@@ -16,10 +20,20 @@ namespace Scrabble.Models
             ScoreDetails = new List<string>{};
         }
 
+        public List<string> dictionary = File.ReadAllLines("/Users/Guest/Desktop/Scrabble.Solution/newDictionary.txt").ToList();
+        
         public bool CheckWord(string input)
         {
             bool outcome = Regex.IsMatch(input, @"^[a-zA-Z]+$");
-            return outcome;
+            if (outcome)
+            {
+                bool wordExists = dictionary.Contains(input);
+                return wordExists;
+            }
+            else 
+            {
+                return false;
+            }
         }
 
         public int GetScore(string input)
